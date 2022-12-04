@@ -2,10 +2,10 @@ use std::ops::BitAnd;
 
 use aoc_runner_derive::aoc;
 
-fn priority(c: u8) -> u32 {
+fn priority(c: u8) -> u8 {
     match c {
-        b'a'..=b'z' => (c - b'a' + 1) as u32,
-        b'A'..=b'Z' => (c - b'A' + 27) as u32,
+        b'a'..=b'z' => c - b'a' + 1,
+        b'A'..=b'Z' => c - b'A' + 27,
         _ => panic!("outside range: {}", c)
     }
 }
