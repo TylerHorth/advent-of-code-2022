@@ -1,4 +1,3 @@
-
 use aoc_runner_derive::{aoc_generator, aoc};
 use parse_display::{FromStr, Display, ParseError};
 
