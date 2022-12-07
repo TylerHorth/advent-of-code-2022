@@ -16,8 +16,7 @@ impl Dir {
     pub fn insert(&mut self, path: &Path, size: u64) {
         self.size += size;
 
-        let os_str = path.as_os_str();
-        if os_str.is_empty() || os_str == "/" {
+        if path.as_os_str().is_empty() {
             return;
         }
 
@@ -53,7 +52,7 @@ impl Dir {
 
 #[aoc_generator(day7)]
 fn parse(data: &str) -> Dir {
-    let mut path = PathBuf::from("/");
+    let mut path = PathBuf::new();
     let mut dir = Dir::default();
 
     for line in data.lines().skip(1) {
