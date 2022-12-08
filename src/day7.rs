@@ -1,4 +1,4 @@
-use std::{path::{Path, PathBuf}, collections::BTreeMap};
+use std::{collections::BTreeMap};
 
 use aoc_runner_derive::{aoc, aoc_generator};
 
