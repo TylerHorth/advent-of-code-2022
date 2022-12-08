@@ -13,18 +13,17 @@ struct Dir {
 }
 
 impl Dir {
-    pub fn insert(&mut self, path: &Path, size: u64) {
+    pub fn insert(&mut self, path: &[&str], size: u64) {
         self.size += size;
 
-        if path.as_os_str().is_empty() {
+        if path.is_empty() {
             return;
         }
 
-        let mut components = path.components();
-        let dir = components.next().unwrap();
-        let path = components.as_path();
+        let dir = path[0];
+        let path = &path[1..];
 
-        self.children.entry(dir.as_os_str().to_str().unwrap().to_string())
+        self.children.entry(dir.to_string())
             .or_insert_with(Default::default)
             .insert(path, size);
     }
@@ -52,7 +51,7 @@ impl Dir {
 
 #[aoc_generator(day7)]
 fn parse(data: &str) -> Dir {
-    let mut path = PathBuf::new();
+    let mut path = Vec::new();
     let mut dir = Dir::default();
 
     for line in data.lines().skip(1) {
