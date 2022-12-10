@@ -55,7 +55,7 @@ impl <'a> Cpu<'a> {
         let pos = (self.cycle - 1) % 40;
 
         if (self.x - pos as i32).abs() <= 1 {
-            print!("#"); // bright green
+            print!("#");
         } else {
             print!(" ");
         }
