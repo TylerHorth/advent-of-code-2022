@@ -12,6 +12,7 @@ fn in_range(data: &Vec<Vec<u8>>, x: i32, y: i32) -> bool {
 }
 
 fn visible_from_edge(data: &Vec<Vec<u8>>, visible: &mut HashSet<(i32, i32)>, (mut x, mut y): (i32, i32), (dx, dy): (i32, i32)) {
+    visible.insert((x, y));
     let mut max = 0;
     while in_range(data, x, y) {
         let height = data[y as usize][x as usize];
