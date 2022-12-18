@@ -1,5 +1,7 @@
 use ariadne::{Report, ReportKind, Fmt, Color, Label, Source};
 use chumsky::prelude::*;
+use lazy_static::lazy_static;
+use regex::Regex;
 
 fn print_errors_and_exit(errors: Vec<Simple<char>>, input: &str, day: usize) -> ! {
     let name = format!("day{}.txt", day);
@@ -77,4 +79,14 @@ pub fn parse_input<T>(parser: impl Parser<char, T, Error = Simple<char>>, input:
         Ok(result) => result,
         Err(errors) => print_errors_and_exit(errors, input, day)
     }
+}
+
+lazy_static! {
+    static ref INTS_REGEX: Regex = Regex::new(r"-?\d+").unwrap();
+}
+
+pub fn ints(data: &str) -> Vec<i32> {
+    INTS_REGEX.find_iter(data)
+        .map(|m| m.as_str().parse().unwrap())
+        .collect()
 }

@@ -25,8 +25,11 @@ dependencies = [
  "aoc-runner",
  "aoc-runner-derive",
  "ariadne",
+ "btree-range-map",
  "chumsky",
+ "lazy_static",
  "parse-display",
+ "regex",
 ]
 
 [[package]]
@@ -95,6 +98,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "autocfg"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+
+[[package]]
 name = "backtrace"
 version = "0.3.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -110,10 +119,42 @@ dependencies = [
 ]
 
 [[package]]
+name = "btree-range-map"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "def3a109c2af9d583d0cba192ea3b8a1c62690f795d5e012d75a350322ce12e4"
+dependencies = [
+ "btree-slab",
+ "cc-traits",
+ "range-traits",
+ "slab",
+]
+
+[[package]]
+name = "btree-slab"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cbd15ebdf1711bae315f668ac8865d35754613955f6473515b6aa2762ea2ec86"
+dependencies = [
+ "cc-traits",
+ "slab",
+ "smallvec",
+]
+
+[[package]]
 name = "cc"
 version = "1.0.77"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e9f73505338f7d905b19d18738976aae232eb46b8efc15554ffc56deb5d9ebe4"
+
+[[package]]
+name = "cc-traits"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "becb23f44ae9dd141d637d520b908c291bf4c5eed016ca368daa1430d54ebf4c"
+dependencies = [
+ "slab",
+]
 
 [[package]]
 name = "cfg-if"
@@ -180,6 +221,12 @@ name = "itoa"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4217ad341ebadf8d8e724e264f13e593e0648f5b3e94b3896a5df283be015ecc"
+
+[[package]]
+name = "lazy_static"
+version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
 name = "libc"
@@ -268,6 +315,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "range-traits"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9ea26694da042b4016873b8c55515348f40d77281f239ade1f2ede3afb8da92c"
+
+[[package]]
 name = "regex"
 version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -323,6 +376,21 @@ dependencies = [
  "ryu",
  "serde",
 ]
+
+[[package]]
+name = "slab"
+version = "0.4.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4614a76b2a8be0058caa9dbbaf66d988527d86d003c11a94fbd335d7661edcef"
+dependencies = [
+ "autocfg",
+]
+
+[[package]]
+name = "smallvec"
+version = "1.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
 
 [[package]]
 name = "structmeta"

@@ -10,5 +10,8 @@ anyhow = { version = "1.0.66", features = ["backtrace"] }
 aoc-runner = "0.3.0"
 aoc-runner-derive = "0.3.0"
 ariadne = "0.1.5"
+btree-range-map = "0.5.0"
 chumsky = "0.8.0"
+lazy_static = "1.4.0"
 parse-display = "0.7.0"
+regex = "1.7.0"
