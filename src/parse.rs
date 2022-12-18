@@ -85,7 +85,7 @@ lazy_static! {
     static ref INTS_REGEX: Regex = Regex::new(r"-?\d+").unwrap();
 }
 
-pub fn ints(data: &str) -> Vec<i32> {
+pub fn ints(data: &str) -> Vec<i64> {
     INTS_REGEX.find_iter(data)
         .map(|m| m.as_str().parse().unwrap())
         .collect()
